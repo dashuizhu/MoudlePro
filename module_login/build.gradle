@@ -12,7 +12,7 @@ dependencies {
   androidTestImplementation 'com.android.support.test:runner:1.0.2'
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-  api project(":basemoudle")
+  api project(':lib_common')
   implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 
   annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'

@@ -35,7 +35,7 @@ dependencies {
   androidTestImplementation 'com.android.support.test:runner:1.0.2'
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-  api project(':commonlib')
+  api project(':lib_base')
   compileOnly 'org.projectlombok:lombok:1.16.14'
   compileOnly 'org.glassfish:javax.annotation:10.0-b28'
   api 'org.jetbrains:annotations-java5:15.0'

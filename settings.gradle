@@ -1,1 +1,1 @@
-include ':app', ':basemoudle', ':loginmoudle', ':mymoudle', ':commonlib', ':lib_qmui', ':module_task'
+include ':app', ':lib_common', ':module_login', ':module_my', ':lib_base', ':lib_qmui', ':module_task'

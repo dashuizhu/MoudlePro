@@ -17,6 +17,6 @@ dependencies {
   androidTestImplementation 'com.android.support.test:runner:1.0.2'
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-  api project(':basemoudle')
+  api project(':lib_common')
   annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }
