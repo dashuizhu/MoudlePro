@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">myMoudle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_label_exit">退出</string>
+    <string name="my_title_my">我的</string>
+    <string name="my_label_user_info">用户信息</string>
+    <string name="com_label_cache">清除缓存</string>
+    <string name="com_my_label_about_us">关于我们</string>
+    <string name="my_label_feed_back">问题反馈</string>
+    <string name="com_label_update_password">修改秘密啊</string>
+    <string name="com_label_my_class">我的班级</string>
+    <string name="com_my_label_check_update">检查更新</string>
+</resources>

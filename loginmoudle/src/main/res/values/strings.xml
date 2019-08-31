@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">loginMoudle</string>
+
+    <string name="login_label_login">登入</string>
+    <string name="login_label_forget_password">忘记密码</string>
+    <string name="login_toast_phone">手机号码不能为空</string>
+    <string name="login_toast_code">验证码不能为空</string>
+    <string name="login_toast_code_error">请输入正确的验证码</string>
+    <string name="login_toast_phone_format">手机号码格式不正确</string>
+    <string name="login_toast_password">密码不能为空</string>
+    <string name="login_toast_password_length">请输入6-16位字符密码</string>
+
+    <string name="login_label_hit_phone">请输入手机号码</string>
+    <string name="login_label_hit_code">请输入6位短信验证码</string>
+    <string name="login_label_hit_password">请输入您的密码</string>
+    <string name="login_label_hit_invite">请输入4位数字的邀请码</string>
+    <string name="login_label_hit_invite2">请输入4位数字的邀请码(选填)</string>
+    <string name="login_label_get_code">获取验证码</string>
+    <string name="login_label_last_login">上一次登录</string>
+    <string name="login_label_rest_get">重新获取</string>
+    <string name="login_label_protocol_read">已阅读和同意</string>
+    <string name="login_label_register_protocol">《天赋管家APP用户服务协议》</string>
+    <string name="login_title_forget_password">忘记密码</string>
+    <string name="login_label_rest_password">重置密码</string>
+</resources>

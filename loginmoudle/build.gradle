@@ -1,0 +1,22 @@
+apply from: "../moudle_build.gradle"
+
+android {
+  defaultConfig {
+    if (isModule.toBoolean()) {
+      applicationId "com.fly.tour.me"
+    }
+  }
+}
+dependencies {
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+  api project(":basemoudle")
+  implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+
+  annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+//  compileOnly 'org.projectlombok:lombok:1.16.14'
+//  compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="AutoEditTextView">
+        <attr name="mAutoBackground" format="reference"/>
+        <attr name="mAutoCloseImg" format="reference"/>
+        <attr name="mAutoTextColor" format="color"/>
+        <attr name="mAutoTextSize" format="dimension"/>
+        <attr name="mAutoLeftDrawable" format="reference"/>
+        <attr name="mAutoTextHintColor" format="color"/>
+        <attr name="mAutoMaxEms" format="integer"/>
+        <attr name="mIsPassword" format="boolean"/>
+        <attr name="mIsNumber" format="boolean"/>
+        <attr name="mIsShowLine" format="boolean"/>
+        <attr name="mAutoTextContent" format="string"/>
+        <attr name="mAutoTextHintContent" format="string"/>
+    </declare-styleable>
+
+
+
+
+</resources>

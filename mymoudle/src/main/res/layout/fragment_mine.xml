@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:paddingTop="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_top_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/my_background"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_hor"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/com_bg_solid_white_half"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/draweeView"
+                    android:orientation="vertical" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/draweeView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="140dp"
+                    android:padding="1dp"
+                    android:background="@mipmap/com_user_avatar_default_img"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:roundAsCircle="true" />
+
+                <ImageView
+                    android:id="@+id/iv_update_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="45dp"
+                    app:layout_constraintLeft_toLeftOf="@id/draweeView"
+                    app:layout_constraintTop_toTopOf="@id/draweeView"
+                    android:padding="5dp"
+                    android:src="@mipmap/my_modify" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:drawableRight="@mipmap/my_girl"
+                    android:gravity="center"
+                    android:textColor="@color/text_normal"
+                    android:textSize="20sp"
+                    tools:text="张树乐" />
+
+                <TextView
+                    android:id="@+id/tv_child_school_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_padding"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_big"
+                    tools:text="南山区星星幼儿园" />
+
+                <TextView
+                    android:id="@+id/tv_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/com_bg_solid_orange_big"
+                    android:paddingBottom="@dimen/view_padding"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/view_padding"
+                    android:text="@string/my_label_user_info"
+                    android:textColor="@color/white" />
+
+                <com.person.commonlib.view.MyItemView
+                    android:id="@+id/item_my_class"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_divide="false"
+                    app:item_icon="@mipmap/my_class"
+                    app:item_title="@string/com_label_my_class" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_horizontal_margin"
+                    android:background="@color/bg_view" />
+
+                <com.person.commonlib.view.MyItemView
+                    android:id="@+id/item_update_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_icon="@mipmap/my_password"
+                    app:item_title="@string/com_label_update_password" />
+
+                <com.person.commonlib.view.MyItemView
+                    android:id="@+id/item_feed_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_icon="@mipmap/my_opinion"
+                    app:item_title="@string/my_label_feed_back" />
+
+                <com.person.commonlib.view.MyItemView
+                    android:id="@+id/item_about_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_divide="false"
+                    app:item_icon="@mipmap/my_we"
+                    app:item_title="@string/com_my_label_about_us" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_horizontal_margin"
+                    android:background="@color/bg_view" />
+
+                <com.person.commonlib.view.MyItemView
+                    android:id="@+id/item_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_icon="@mipmap/my_update"
+                    app:item_title="@string/com_my_label_check_update" />
+
+                <com.person.commonlib.view.MyItemView
+                    android:id="@+id/item_cache"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/com_layout_selector"
+                    app:item_divide="false"
+                    app:item_icon="@mipmap/my_cache"
+                    app:item_title="@string/com_label_cache" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="@color/bg_view" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/bg_view" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_view">
+
+                    <TextView
+                        android:id="@+id/tv_exist"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin_more"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin_more"
+                        android:textSize="@dimen/text_big"
+                        android:background="@drawable/com_bg_solid_orange_drakfd83_big"
+                        android:gravity="center"
+                        android:text="@string/my_label_exit"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/bg_view" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFD33F"
+        android:paddingTop="20dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="@string/my_title_my"
+            android:textColor="@color/text_normal"
+            android:textSize="@dimen/text_title"
+            android:visibility="invisible"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
