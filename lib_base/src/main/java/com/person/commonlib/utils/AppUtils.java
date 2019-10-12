@@ -261,10 +261,10 @@ public class AppUtils {
                     } catch (PackageManager.NameNotFoundException e) {
                         e.printStackTrace();
                     }
-                    if (appInfo.metaData.containsKey("UMENG_CHANNEL")) {
+                    if (appInfo.metaData != null && appInfo.metaData.containsKey("UMENG_CHANNEL")) {
                         mChannelValue = appInfo.metaData.getString("UMENG_CHANNEL");
                     } else {
-                        mChannelValue = "buddy";
+                        mChannelValue = "default";
                     }
                 }
             }

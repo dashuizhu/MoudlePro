@@ -15,6 +15,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class BasePresenter implements IPresenter {
 
+  protected IBaseView mBaseView;
+
   private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
   public void destroy() {

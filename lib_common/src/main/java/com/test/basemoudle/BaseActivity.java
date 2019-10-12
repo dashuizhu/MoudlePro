@@ -42,7 +42,7 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        if (!QMUIStatusBarHelper.setStatusBarLightMode(this)) {
+        if (!QMUIStatusBarHelper.setStatusBarDarkMode(this)) {
             //5.0到6.0以下，无法修改黑色状态图标，就修改状态栏背景为灰色
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(R.color.light_status_bg));
@@ -73,6 +73,7 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
      * 必须在setContentView下面调用
      */
     protected void transitionSystemBar() {
+        QMUIStatusBarHelper.translucent(this, 111);
         if (Build.VERSION.SDK_INT >= 28) {
             WindowManager.LayoutParams lp = getWindow().getAttributes();
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="work_title_task_today">今日作业</string>
+    <string name="work_label_no_grade">没有班级</string>
+    <string name="work_label_load_submiting">正在催交中...</string>
+
+
+    <string name="work_label_work_prompt">催交</string>
+    <string name="work_label_commit_time">截止提交时间:</string>
+    <string name="work_label_checked">已检查</string>
+    <string name="work_label_uncheck">未检查</string>
+    <string name="work_label_deadline">已截止</string>
+    <string name="work_label_work_list_empty">发布课程后，在这里可以查看孩子们\n的完成情况和准确率哦</string>
+    <string name="work_label_work_list_histroy_empty">孩子完成课程后，在这里可以\n查看孩子们的历史记录哦</string>
+</resources>

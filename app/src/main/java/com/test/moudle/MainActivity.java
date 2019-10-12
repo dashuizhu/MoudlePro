@@ -20,25 +20,19 @@ import butterknife.OnClick;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.hwangjr.rxbus.annotation.Subscribe;
-import com.hwangjr.rxbus.annotation.Tag;
-import com.hwangjr.rxbus.thread.EventThread;
 import com.person.commonlib.utils.AppUtils;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.test.basemoudle.BaseActivity;
 import com.test.basemoudle.provider.IMyProvider;
 import com.test.basemoudle.provider.ITaskProvider;
+import com.test.basemoudle.provider.IWorkProvider;
 import com.test.basemoudle.utils.ActivityUtils;
 import com.test.basemoudle.utils.sharedPresenter.SharedPreApp;
 import com.test.basemoudle.utils.sharedPresenter.SharedPreUser;
 import com.test.moudle.bean.GradeResult;
 import com.test.moudle.bean.VersionUpdateResult;
 import com.test.moudle.view.UpdateDialog;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 import rx.functions.Action1;
 
 /**
@@ -73,8 +67,9 @@ public class MainActivity extends BaseActivity {
     //没有班级的时候，点击课程、作业， 要请求查询班级，有了班级，就要跳转刚点的
     private int mSkipClickId;
 
-    @Autowired(name = "/my/myProvider") IMyProvider mMeProvider;
+    @Autowired(name = "/my/myProvider")     IMyProvider   mMeProvider;
     @Autowired(name = "/task/taskProvider") ITaskProvider mTaskProvider;
+    @Autowired(name = "/work/workProvider") IWorkProvider mWorkProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,12 +169,12 @@ public class MainActivity extends BaseActivity {
                 //    mSkipClickId = R.id.tv_work;
                 //    return;
                 //}
-                //if (mWorkFragment == null) {
-                //    mWorkFragment = TaskWorkListFragment.newInstance(1);
-                //    fragmentTransaction.add(R.id.ll_container, mWorkFragment, TAG_WORK);
-                //} else {
-                //    fragmentTransaction.show(mWorkFragment);
-                //}
+                if (mWorkFragment == null) {
+                    mWorkFragment = mWorkProvider.getMainWorkFragment();
+                    fragmentTransaction.add(R.id.ll_container, mWorkFragment, TAG_WORK);
+                } else {
+                    fragmentTransaction.show(mWorkFragment);
+                }
                 //mTvWork.setSelected(true);
 
                 break;

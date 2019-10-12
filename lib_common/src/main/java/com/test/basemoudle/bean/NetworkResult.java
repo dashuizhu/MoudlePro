@@ -7,7 +7,13 @@ import lombok.Data;
  */
 public class NetworkResult {
 
-    public final static int CODE_SUCCESS = 0;
+    public final static int CODE_SUCCESS             = 0;
+    public static final int CODE_TOKEN_ERROR         = 40102;
+    public static final int CODE_TOKEN_REFRESH_ERROR = 40103;
+    public static final int CODE_NO_GRADE = 40305;
+
+    public static final int TAG_REFRESH   = 1;
+    public static final int TAG_LOADMORE  = 2;
 
     private int    code;
     private String message;

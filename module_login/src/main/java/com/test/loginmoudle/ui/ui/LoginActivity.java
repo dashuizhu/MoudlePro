@@ -18,6 +18,7 @@ import com.test.basemoudle.utils.sharedPresenter.SharedPreApp;
 import com.test.basemoudle.utils.sharedPresenter.SharedPreUser;
 import com.test.loginmoudle.R;
 import com.test.loginmoudle.ui.AutoEditTextView;
+import com.test.loginmoudle.ui.ui.presenter.LoginPresenter;
 
 /**
  * 登入
@@ -25,7 +26,7 @@ import com.test.loginmoudle.ui.AutoEditTextView;
  * @author zhuj
  * @date 2017/6/15 上午9:21
  */
-@Route(path = "/test/activity")
+@Route(path = "/login/activity")
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     Button           mBtnLogin;
@@ -34,18 +35,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     LinearLayout     mLlAll;
     TextView         mTvForgetPsd;
 
-    //private UserPresenter mUserPresenter;
-    private Bundle mSavedInstanceState;
+    private LoginPresenter mPresenter;
+    private Bundle         mSavedInstanceState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         registerRxBus();
-        //initializeDependencyInjector();
+        initializeDependencyInjector();
         initViews();
         initUserInfo();
-        initLoginState();
+        //initLoginState();
         if (savedInstanceState != null) {
             mSavedInstanceState = savedInstanceState;
         }
@@ -100,25 +101,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    private void initLoginState() {
-        long expiredTime =
-                (long) SharedPreUser.getInstance().get(this, SharedPreUser.KEY_TOKEN_EXPIRED, 0L);
-        //有效时间
-        long time = expiredTime - System.currentTimeMillis();
-        if (time > 10 * 60) {
-            ActivityUtils.startHome();
-            finish();
-        } else {
-            //清空用户id
-            SharedPreUser.getInstance().remove(this, SharedPreUser.KEY_MEMBER);
-        }
-    }
+    //private void initLoginState() {
+    //    long expiredTime =
+    //            (long) SharedPreUser.getInstance().get(this, SharedPreUser.KEY_TOKEN_EXPIRED, 0L);
+    //    //有效时间
+    //    long time = expiredTime - System.currentTimeMillis();
+    //    if (time > 10 * 60) {
+    //        ActivityUtils.startHome();
+    //        finish();
+    //    } else {
+    //        //清空用户id
+    //        SharedPreUser.getInstance().remove(this, SharedPreUser.KEY_MEMBER);
+    //    }
+    //}
 
     @Override
     protected void onDestroy() {
-        //if (mUserPresenter != null) {
-        //    mUserPresenter.destroy();
-        //}
+        if (mPresenter != null) {
+            mPresenter.destroy();
+        }
         super.onDestroy();
     }
 
@@ -166,7 +167,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void initializeDependencyInjector() {
         //AppPresnterComponent authenticationComponent =
         //        DaggerAppPresnterComponent.builder().appModelModule(new AppModelModule(this)).build();
-        //mUserPresenter = authenticationComponent.getUserPresenter();
+        //mPresenter = authenticationComponent.getUserPresenter();
+        mPresenter = new LoginPresenter(this);
     }
 
     @Override
@@ -175,7 +177,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             String userName = mAetPhone.getText();
             String passWord = mAetPwd.getText();
             if (checkInfo(userName, passWord)) {
-                //mUserPresenter.login(userName, passWord, true);
+                mPresenter.login(userName, passWord, true);
             }
         } else if (view.getId() == R.id.tv_forget_password) {
             ForgetPasswordActivity.startForgetPassword(this, mAetPhone.getText());

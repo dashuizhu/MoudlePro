@@ -8,6 +8,7 @@ import com.facebook.common.util.ByteConstants;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.person.commonlib.utils.DensityHelp;
+import com.test.basemoudle.network.RetrofitManager;
 
 /**
  * @author zhuj 2019-08-28 21:14.
@@ -23,6 +24,7 @@ public class BaseApplication extends Application {
         ARouter.openDebug();
         ARouter.openLog();
         ARouter.init(this);
+        RetrofitManager.getInstance().init(this);
         initFresco();
         sApplication = this;
     }
@@ -30,6 +32,7 @@ public class BaseApplication extends Application {
     public static Context getContext() {
         return sApplication.getApplicationContext();
     }
+
 
     private void initFresco() {
         DiskCacheConfig diskCacheConfig = DiskCacheConfig.newBuilder(this)

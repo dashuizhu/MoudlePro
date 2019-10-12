@@ -19,6 +19,10 @@ android {
         arguments = [AROUTER_MODULE_NAME: project.getName()]
       }
     }
+
+    if (isModule.toBoolean()) {
+      flavorDimensions "default"
+    }
   }
 
   compileOptions {
@@ -48,6 +52,16 @@ android {
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  if (isModule.toBoolean()) {
+    //多渠道配
+    productFlavors {
+      develop {}
+      produce {}
+    }
+    productFlavors.all { flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
   }
 }

@@ -1,1 +1,2 @@
-include ':app', ':lib_common', ':module_login', ':module_my', ':lib_base', ':lib_qmui', ':module_task'
+include ':app', ':lib_common', ':module_login', ':module_my', ':lib_base', ':lib_qmui', ':module_work', ':module_message',
+    ':module_task', ':lib_progress'

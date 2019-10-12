@@ -3,7 +3,7 @@
     package="com.test.mymoudle">
 
     <application>
-        <activity android:name=".ui.ClassActivity"></activity>
+        <activity android:name=".ui.ClassActivity"/>
     </application>
 
 </manifest>

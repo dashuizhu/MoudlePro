@@ -1,0 +1,16 @@
+apply from: "../moudle_build.gradle"
+
+android {
+  defaultConfig {
+    if (isModule.toBoolean()) {
+      applicationId "com.test.module.work"
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  api project(':lib_common')
+  annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+}

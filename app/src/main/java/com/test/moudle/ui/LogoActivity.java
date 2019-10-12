@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.WindowManager;
 import com.person.commonlib.qmui.QMUINotchHelper;
 import com.person.commonlib.qmui.QMUIStatusBarHelper;
+import com.person.commonlib.utils.ToastUtils;
 import com.test.basemoudle.utils.ActivityUtils;
 import com.test.basemoudle.utils.sharedPresenter.SharedPreApp;
 import com.test.basemoudle.utils.sharedPresenter.SharedPreUser;
+import com.test.moudle.BuildConfig;
 import com.test.moudle.R;
 import java.util.concurrent.TimeUnit;
 import rx.Observable;
@@ -46,6 +48,8 @@ public class LogoActivity extends Activity {
             }
         }
         loadSplashFragment();
+
+        ToastUtils.toast(this, " " + BuildConfig.FLAVOR);
     }
 
     /**
@@ -58,19 +62,19 @@ public class LogoActivity extends Activity {
                     @Override
                     public void call(Long aLong) {
 
-                        boolean isGuide = (boolean) SharedPreApp.getInstance()
-                                .get(LogoActivity.this, SharedPreApp.KEY_GUIDE, true);
-                        //优先引导页
-                        if (isGuide) {
-                            //退出全屏
-                            getWindow().setFlags(
-                                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-                                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-                            //ActivityUtils.startGuide(LogoActivity.this);
-                            ActivityUtils.startHome();
-                            finish();
-                            return;
-                        }
+                        //退出全屏
+                        getWindow().setFlags(
+                                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+                                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+                        //boolean isGuide = (boolean) SharedPreApp.getInstance()
+                        //        .get(LogoActivity.this, SharedPreApp.KEY_GUIDE, true);
+                        ////优先引导页
+                        //if (isGuide) {
+                        //    //ActivityUtils.startGuide(LogoActivity.this);
+                        //    ActivityUtils.startHome();
+                        //    finish();
+                        //    return;
+                        //}
 
                         long expiredTime = (long) SharedPreUser.getInstance()
                                 .get(LogoActivity.this, SharedPreUser.KEY_TOKEN_EXPIRED, 0L);

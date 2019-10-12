@@ -12,4 +12,5 @@
     <string name="com_label_update_password">修改秘密啊</string>
     <string name="com_label_my_class">我的班级</string>
     <string name="com_my_label_check_update">检查更新</string>
+    <string name="label_no_grade">没有班级</string>
 </resources>
